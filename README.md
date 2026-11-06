@@ -5,6 +5,10 @@
 # Neosaider
 
 **Headless, local-first harness for Neo, your personal assistant.**
+
+> [!WARNING]
+> The project is in the experimental phase.
+
 Bring your own models. One SQLite file. Modules run as Docker containers.
 
 [![License: AGPL-3.0](https://img.shields.io/badge/license-AGPL--3.0-pink.svg?style=flat-square)](LICENSE.md)
@@ -40,6 +44,12 @@ Neosaider hosts Neo, an agent built with LangGraph JS, behind an HTTP API with S
 4. After the run, a fast model extracts memories in the background. A persisted queue retries the extraction if the model server is down.
 5. The **scheduler** fires triggers, runs Neo in `proactive:*` threads and stores the answer in a notification inbox. Each client keeps a cursor, so it receives everything it missed.
 6. The **module installer** reads a catalog, validates the module manifest, and runs the module as a container through Docker. It then connects to the module over MCP. Its tools are available from the next answer on, without a restart.
+
+# Purpose
+
+The purpose of this project is to create a modular, AI-compatible ecosystem for assistance in any personal environment. This means that the approach is strictly focused on local operation to preserve data privacy. The inspiration for this project stems from the desire to have a fully modular system for a smart home—an AI that has controlled access to the components you provide and has the autonomy to follow and execute the commands you give it, similar to Alexa.
+
+The project is a personal research effort with the vision that small, fast AI models can function as personal assistants that control devices in the home. The specific hardware required has not yet been proposed or tested.
 
 ## Getting started
 
