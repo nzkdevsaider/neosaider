@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "modules": [
+    {
+      "id": "gym",
+      "versions": [
+        {
+          "version": "0.1.0",
+          "manifest": "./gym/neosaider.module.json",
+          "readme": "./gym/README.md"
+        }
+      ]
+    }
+  ]
+}

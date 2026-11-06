@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 1000 660" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="module-install-title module-install-desc" id="module-install-root">
+        <title id="module-install-title">Installing a module</title>
+        <desc id="module-install-desc">The web UI asks the harness to install a module: the installer resolves its manifest from the catalog, has Docker pull the image and run a hardened container with its own volume, polls the module until it is healthy and serves the same manifest, then saves the installation and connects its MCP tools.</desc>
+        <defs>
+      <style>@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Geist:wght@400;500;600&amp;family=Geist+Mono:wght@400;500;600&amp;family=Noto+Serif:ital@0;1&amp;family=Noto+Sans+KR:wght@400;500;600&amp;family=Noto+Serif+KR:wght@400&amp;family=Noto+Sans+TC:wght@400;500;600&amp;family=Noto+Serif+TC:wght@400&amp;display=swap');
+      #module-install-root { --color-paper: #f5f5f5;
+      --color-ink: #2d3142;
+      --color-muted: #4f5d75;
+      --font-sans: 'Geist', system-ui, sans-serif;
+      --font-serif: 'Instrument Serif', serif;
+      --font-mono: 'Geist Mono', ui-monospace, monospace; }
+      #module-install-root { font-family: var(--font-sans); color: var(--color-ink); }
+      #module-install-root .diagram-container { width: 100%; overflow-x: auto; }
+      #module-install-root .diagram-container { overflow-x: visible; }</style>
+          <marker id="module-install-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#4f5d75"/></marker>
+          <marker id="module-install-arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#eb6c36"/></marker>
+          <marker id="module-install-arrow-link" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#2e5aa8"/></marker>
+          <marker id="module-install-arrow-open" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polyline points="0 0, 8 3, 0 6" fill="none" stroke="#4f5d75" stroke-width="1.2"/></marker>
+        </defs>
+        <rect width="100%" height="100%" fill="#f5f5f5"/>
+<rect x="240" y="352" width="720" height="100" rx="4" fill="#2d3142" fill-opacity="0.02" stroke="#2d3142" stroke-opacity="0.22" stroke-width="1"/>
+<rect x="240" y="352" width="40" height="16" rx="2" fill="#f5f5f5" stroke="#2d3142" stroke-opacity="0.22" stroke-width="1"/>
+<text x="260" y="364" fill="#4f5d75" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.12em">LOOP</text>
+<line x1="120" y1="96" x2="120" y2="572" stroke="#2d3142" stroke-opacity="0.20" stroke-width="1" stroke-dasharray="3,3"/>
+<line x1="312" y1="96" x2="312" y2="572" stroke="#2d3142" stroke-opacity="0.20" stroke-width="1" stroke-dasharray="3,3"/>
+<line x1="504" y1="96" x2="504" y2="572" stroke="#2d3142" stroke-opacity="0.20" stroke-width="1" stroke-dasharray="3,3"/>
+<line x1="696" y1="96" x2="696" y2="572" stroke="#2d3142" stroke-opacity="0.20" stroke-width="1" stroke-dasharray="3,3"/>
+<line x1="888" y1="96" x2="888" y2="572" stroke="#2d3142" stroke-opacity="0.20" stroke-width="1" stroke-dasharray="3,3"/>
+<rect x="284" y="354" width="140" height="12" rx="2" fill="#f5f5f5"/>
+<text x="290" y="364" fill="#4f5d75" font-size="8" font-family="'Geist Mono', monospace" letter-spacing="0.04em">[until healthy or timeout]</text>
+<path d="M120,140 H312" fill="none" stroke="#2e5aa8" stroke-width="1.2" marker-end="url(#module-install-arrow-link)"/>
+<rect x="178" y="121" width="76" height="12" rx="2" fill="#f5f5f5"/><text x="216" y="130" fill="#2e5aa8" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.06em">POST /INSTALL</text>
+<path d="M312,180 H504" fill="none" stroke="#2e5aa8" stroke-width="1.2" marker-end="url(#module-install-arrow-link)"/>
+<rect x="370" y="161" width="76" height="12" rx="2" fill="#f5f5f5"/><text x="408" y="170" fill="#2e5aa8" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.06em">FIND MANIFEST</text>
+<path d="M504,212 H312" fill="none" stroke="#4f5d75" stroke-width="1" stroke-dasharray="5,4" marker-end="url(#module-install-arrow)"/>
+<rect x="382" y="193" width="52" height="12" rx="2" fill="#f5f5f5"/><text x="408" y="202" fill="#7a8399" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.06em">MANIFEST</text>
+<path d="M312,252 H696" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#module-install-arrow)"/>
+<rect x="376" y="233" width="64" height="12" rx="2" fill="#f5f5f5"/><text x="408" y="242" fill="#7a8399" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.06em">PULL IMAGE</text>
+<path d="M312,284 H696" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#module-install-arrow)"/>
+<rect x="372" y="265" width="72" height="12" rx="2" fill="#f5f5f5"/><text x="408" y="274" fill="#7a8399" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.06em">VOLUME + RUN</text>
+<path d="M696,316 H888" fill="none" stroke="#4f5d75" stroke-width="1" stroke-dasharray="5,4" marker-end="url(#module-install-arrow-open)"/>
+<rect x="774" y="297" width="36" height="12" rx="2" fill="#f5f5f5"/><text x="792" y="306" fill="#7a8399" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.06em">START</text>
+<path d="M312,396 H888" fill="none" stroke="#2e5aa8" stroke-width="1.2" marker-end="url(#module-install-arrow-link)"/>
+<rect x="374" y="377" width="68" height="12" rx="2" fill="#f5f5f5"/><text x="408" y="386" fill="#2e5aa8" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.06em">GET /HEALTH</text>
+<path d="M888,428 H312" fill="none" stroke="#4f5d75" stroke-width="1" stroke-dasharray="5,4" marker-end="url(#module-install-arrow)"/>
+<rect x="754" y="409" width="76" height="12" rx="2" fill="#f5f5f5"/><text x="792" y="418" fill="#7a8399" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.06em">OK + MANIFEST</text>
+<path d="M312,476 H352 Q360,476 360,484 V492 Q360,500 352,500 H318" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#module-install-arrow)"/>
+<rect x="368" y="483" width="84" height="12" rx="2" fill="#f5f5f5"/><text x="374" y="492" fill="#7a8399" font-size="8" font-family="'Geist Mono', monospace" letter-spacing="0.06em">SAVE · CONNECT</text>
+<path d="M312,540 H120" fill="none" stroke="#eb6c36" stroke-width="1.2" marker-end="url(#module-install-arrow-accent)"/>
+<rect x="192" y="521" width="48" height="12" rx="2" fill="#f5f5f5"/><text x="216" y="530" fill="#eb6c36" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.06em">RUNNING</text>
+<rect x="40" y="40" width="160" height="56" rx="6" fill="#f5f5f5"/><rect x="40" y="40" width="160" height="56" rx="6" fill="#4f5d75" fill-opacity="0.10" stroke="#7a8399" stroke-width="1"/><rect x="48" y="46" width="28" height="12" rx="2" fill="none" stroke="#7a8399" stroke-opacity="0.4" stroke-width="0.8"/><text x="62.0" y="55" fill="#7a8399" fill-opacity="0.8" font-size="7" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">UI</text><text x="120" y="72" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Web UI</text><text x="120" y="86" fill="#4f5d75" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">store page</text>
+<rect x="232" y="40" width="160" height="56" rx="6" fill="#f5f5f5"/><rect x="232" y="40" width="160" height="56" rx="6" fill="#eb6c36" fill-opacity="0.08" stroke="#eb6c36" stroke-width="1"/><rect x="240" y="46" width="28" height="12" rx="2" fill="none" stroke="#eb6c36" stroke-opacity="0.4" stroke-width="0.8"/><text x="254.0" y="55" fill="#eb6c36" fill-opacity="0.8" font-size="7" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">CORE</text><text x="312" y="72" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Installer</text><text x="312" y="86" fill="#4f5d75" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">module-installer.ts</text>
+<rect x="424" y="40" width="160" height="56" rx="6" fill="#f5f5f5"/><rect x="424" y="40" width="160" height="56" rx="6" fill="#2d3142" fill-opacity="0.03" stroke="#2d3142" stroke-opacity="0.30" stroke-width="1"/><rect x="432" y="46" width="28" height="12" rx="2" fill="none" stroke="#2d3142" stroke-opacity="0.4" stroke-width="0.8"/><text x="446.0" y="55" fill="#2d3142" fill-opacity="0.8" font-size="7" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">JSON</text><text x="504" y="72" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Catalog</text><text x="504" y="86" fill="#4f5d75" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">catalog + manifest</text>
+<rect x="616" y="40" width="160" height="56" rx="6" fill="#f5f5f5"/><rect x="616" y="40" width="160" height="56" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1"/><rect x="624" y="46" width="32" height="12" rx="2" fill="none" stroke="#2d3142" stroke-opacity="0.4" stroke-width="0.8"/><text x="640.0" y="55" fill="#2d3142" fill-opacity="0.8" font-size="7" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">PROXY</text><text x="696" y="72" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Docker</text><text x="696" y="86" fill="#4f5d75" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">module-runtime.ts</text>
+<rect x="808" y="40" width="160" height="56" rx="6" fill="#f5f5f5"/><rect x="808" y="40" width="160" height="56" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1"/><rect x="816" y="46" width="28" height="12" rx="2" fill="none" stroke="#2d3142" stroke-opacity="0.4" stroke-width="0.8"/><text x="830.0" y="55" fill="#2d3142" fill-opacity="0.8" font-size="7" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">MCP</text><text x="888" y="72" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Module</text><text x="888" y="86" fill="#4f5d75" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">neosaider-module-id</text>
+<line x1="40" y1="596" x2="960" y2="596" stroke="#2d3142" stroke-opacity="0.10" stroke-width="0.8"/>
+<text x="40" y="616" fill="#4f5d75" font-size="8" font-family="'Geist Mono', monospace" letter-spacing="0.14em">LEGEND</text>
+<line x1="120" y1="613" x2="136" y2="613" stroke="#2e5aa8" stroke-width="1.2"/>
+<text x="144" y="616" fill="#4f5d75" font-size="9" font-family="'Geist Mono', monospace">HTTP / MCP call</text>
+<line x1="255" y1="613" x2="271" y2="613" stroke="#4f5d75" stroke-width="1.2"/>
+<text x="279" y="616" fill="#4f5d75" font-size="9" font-family="'Geist Mono', monospace">in-process call</text>
+<line x1="390" y1="613" x2="406" y2="613" stroke="#4f5d75" stroke-width="1.2" stroke-dasharray="5,4"/>
+<text x="414" y="616" fill="#4f5d75" font-size="9" font-family="'Geist Mono', monospace">return / async</text>
+<line x1="520" y1="613" x2="536" y2="613" stroke="#eb6c36" stroke-width="1.2"/>
+<text x="544" y="616" fill="#4f5d75" font-size="9" font-family="'Geist Mono', monospace">outcome</text>
+      </svg>

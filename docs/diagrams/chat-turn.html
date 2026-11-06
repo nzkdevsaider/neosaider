@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>One chat turn</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --color-paper: #f5f5f5;
+      --color-ink: #2d3142;
+      --color-muted: #4f5d75;
+      --font-sans: 'Geist', system-ui, sans-serif;
+      --font-serif: 'Instrument Serif', serif;
+      --font-mono: 'Geist Mono', ui-monospace, monospace;
+    }
+    body {
+      font-family: var(--font-sans);
+      background: var(--color-paper);
+      color: var(--color-ink);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem 2rem;
+    }
+    .frame { max-width: 1200px; width: 100%; }
+    .diagram-container { width: 100%; overflow-x: auto; }
+    .eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.66rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--color-muted);
+      margin-bottom: 0.5rem;
+    }
+    h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(1.5rem, 2.4vw + 0.75rem, 2rem);
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      margin-bottom: 1.5rem;
+    }
+    svg { width: 100%; min-width: 1000px; display: block; }
+    @media print {
+      .diagram-container { overflow-x: visible; }
+      svg { min-width: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <p class="eyebrow">Sequence · Neosaider</p>
+    <h1>One chat turn</h1>
+    <div class="diagram-container">
+      <svg viewBox="0 0 1000 720" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="chat-turn-title chat-turn-desc">
+        <title id="chat-turn-title">One chat turn</title>
+        <desc id="chat-turn-desc">A client posts a message, the harness runs Neo, Neo recalls memories, loops between the model and MCP module tools while streaming tokens back over SSE, then finishes and queues memory extraction.</desc>
+        <defs>
+          <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#4f5d75"/></marker>
+          <marker id="arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#eb6c36"/></marker>
+          <marker id="arrow-link" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#2e5aa8"/></marker>
+          <marker id="arrow-open" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polyline points="0 0, 8 3, 0 6" fill="none" stroke="#4f5d75" stroke-width="1.2"/></marker>
+        </defs>
+        <rect width="100%" height="100%" fill="#f5f5f5"/>
+<rect x="48" y="264" width="912" height="240" rx="4" fill="rgba(45,49,66,0.02)" stroke="rgba(45,49,66,0.22)" stroke-width="1"/>
+<rect x="48" y="264" width="40" height="16" rx="2" fill="#f5f5f5" stroke="rgba(45,49,66,0.22)" stroke-width="1"/>
+<text x="68" y="276" fill="#4f5d75" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.12em">LOOP</text>
+<line x1="120" y1="96" x2="120" y2="632" stroke="rgba(45,49,66,0.20)" stroke-width="1" stroke-dasharray="3,3"/>
+<line x1="312" y1="96" x2="312" y2="632" stroke="rgba(45,49,66,0.20)" stroke-width="1" stroke-dasharray="3,3"/>
+<line x1="504" y1="96" x2="504" y2="632" stroke="rgba(45,49,66,0.20)" stroke-width="1" stroke-dasharray="3,3"/>
+<line x1="696" y1="96" x2="696" y2="632" stroke="rgba(45,49,66,0.20)" stroke-width="1" stroke-dasharray="3,3"/>
+<line x1="888" y1="96" x2="888" y2="632" stroke="rgba(45,49,66,0.20)" stroke-width="1" stroke-dasharray="3,3"/>
+<rect x="92" y="266" width="156" height="12" rx="2" fill="#f5f5f5"/>
+<text x="98" y="276" fill="#4f5d75" font-size="8" font-family="'Geist Mono', monospace" letter-spacing="0.04em">[while the model calls tools]</text>
+<path d="M120,140 H312" fill="none" stroke="#2e5aa8" stroke-width="1.2" marker-end="url(#arrow-link)"/>
+<rect x="174" y="121" width="84" height="12" rx="2" fill="#f5f5f5"/><text x="216" y="130" fill="#2e5aa8" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.06em">POST /MESSAGES</text>
+<path d="M312,180 H504" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#arrow)"/>
+<rect x="376" y="161" width="64" height="12" rx="2" fill="#f5f5f5"/><text x="408" y="170" fill="#7a8399" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.06em">RUN THREAD</text>
+<path d="M504,204 H544 Q552,204 552,212 V220 Q552,228 544,228 H510" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#arrow)"/>
+<rect x="560" y="211" width="76" height="12" rx="2" fill="#f5f5f5"/><text x="566" y="220" fill="#7a8399" font-size="8" font-family="'Geist Mono', monospace" letter-spacing="0.06em">RECALL MEMORY</text>
+<path d="M504,320 H696" fill="none" stroke="#2e5aa8" stroke-width="1.2" marker-end="url(#arrow-link)"/>
+<rect x="564" y="301" width="72" height="12" rx="2" fill="#f5f5f5"/><text x="600" y="310" fill="#2e5aa8" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.06em">CHAT + TOOLS</text>
+<path d="M696,352 H504" fill="none" stroke="#4f5d75" stroke-width="1" stroke-dasharray="5,4" marker-end="url(#arrow)"/>
+<rect x="558" y="333" width="84" height="12" rx="2" fill="#f5f5f5"/><text x="600" y="342" fill="#7a8399" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.06em">TOKENS · CALLS</text>
+<path d="M504,384 H312" fill="none" stroke="#4f5d75" stroke-width="1" stroke-dasharray="5,4" marker-end="url(#arrow-open)"/>
+<rect x="370" y="365" width="76" height="12" rx="2" fill="#f5f5f5"/><text x="408" y="374" fill="#7a8399" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.06em">STREAM EVENTS</text>
+<path d="M312,416 H120" fill="none" stroke="#4f5d75" stroke-width="1" stroke-dasharray="5,4" marker-end="url(#arrow-open)"/>
+<rect x="174" y="397" width="84" height="12" rx="2" fill="#f5f5f5"/><text x="216" y="406" fill="#7a8399" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.06em">SSE TOKEN/TOOL</text>
+<path d="M504,448 H888" fill="none" stroke="#2e5aa8" stroke-width="1.2" marker-end="url(#arrow-link)"/>
+<rect x="572" y="429" width="56" height="12" rx="2" fill="#f5f5f5"/><text x="600" y="438" fill="#2e5aa8" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.06em">CALL TOOL</text>
+<path d="M888,480 H504" fill="none" stroke="#4f5d75" stroke-width="1" stroke-dasharray="5,4" marker-end="url(#arrow)"/>
+<rect x="758" y="461" width="68" height="12" rx="2" fill="#f5f5f5"/><text x="792" y="470" fill="#7a8399" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.06em">TOOL RESULT</text>
+<path d="M312,544 H120" fill="none" stroke="#eb6c36" stroke-width="1.2" marker-end="url(#arrow-accent)"/>
+<rect x="190" y="525" width="52" height="12" rx="2" fill="#f5f5f5"/><text x="216" y="534" fill="#eb6c36" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.06em">SSE DONE</text>
+<path d="M504,568 H544 Q552,568 552,576 V584 Q552,592 544,592 H510" fill="none" stroke="#4f5d75" stroke-width="1" stroke-dasharray="5,4" marker-end="url(#arrow-open)"/>
+<rect x="560" y="575" width="72" height="12" rx="2" fill="#f5f5f5"/><text x="566" y="584" fill="#7a8399" font-size="8" font-family="'Geist Mono', monospace" letter-spacing="0.06em">QUEUE MEMORY</text>
+<rect x="40" y="40" width="160" height="56" rx="6" fill="#f5f5f5"/><rect x="40" y="40" width="160" height="56" rx="6" fill="rgba(79,93,117,0.10)" stroke="#7a8399" stroke-width="1"/><rect x="48" y="46" width="28" height="12" rx="2" fill="none" stroke="#7a8399" stroke-opacity="0.4" stroke-width="0.8"/><text x="62.0" y="55" fill="#7a8399" fill-opacity="0.8" font-size="7" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">UI</text><text x="120" y="72" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Client</text><text x="120" y="86" fill="#4f5d75" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">CLI · web · useStream</text>
+<rect x="232" y="40" width="160" height="56" rx="6" fill="#f5f5f5"/><rect x="232" y="40" width="160" height="56" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1"/><rect x="240" y="46" width="28" height="12" rx="2" fill="none" stroke="#2d3142" stroke-opacity="0.4" stroke-width="0.8"/><text x="254.0" y="55" fill="#2d3142" fill-opacity="0.8" font-size="7" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">API</text><text x="312" y="72" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Harness</text><text x="312" y="86" fill="#4f5d75" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">apps/harness</text>
+<rect x="424" y="40" width="160" height="56" rx="6" fill="#f5f5f5"/><rect x="424" y="40" width="160" height="56" rx="6" fill="rgba(235,108,54,0.08)" stroke="#eb6c36" stroke-width="1"/><rect x="432" y="46" width="32" height="12" rx="2" fill="none" stroke="#eb6c36" stroke-opacity="0.4" stroke-width="0.8"/><text x="448.0" y="55" fill="#eb6c36" fill-opacity="0.8" font-size="7" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">GRAPH</text><text x="504" y="72" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Neo</text><text x="504" y="86" fill="#4f5d75" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">recall → agent ⇄ tools</text>
+<rect x="616" y="40" width="160" height="56" rx="6" fill="#f5f5f5"/><rect x="616" y="40" width="160" height="56" rx="6" fill="rgba(45,49,66,0.03)" stroke="rgba(45,49,66,0.30)" stroke-width="1"/><rect x="624" y="46" width="28" height="12" rx="2" fill="none" stroke="#2d3142" stroke-opacity="0.4" stroke-width="0.8"/><text x="638.0" y="55" fill="#2d3142" fill-opacity="0.8" font-size="7" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">LLM</text><text x="696" y="72" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Model server</text><text x="696" y="86" fill="#4f5d75" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">/v1/chat/completions</text>
+<rect x="808" y="40" width="160" height="56" rx="6" fill="#f5f5f5"/><rect x="808" y="40" width="160" height="56" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1"/><rect x="816" y="46" width="28" height="12" rx="2" fill="none" stroke="#2d3142" stroke-opacity="0.4" stroke-width="0.8"/><text x="830.0" y="55" fill="#2d3142" fill-opacity="0.8" font-size="7" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">MCP</text><text x="888" y="72" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Module</text><text x="888" y="86" fill="#4f5d75" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">streamable HTTP</text>
+<line x1="40" y1="656" x2="960" y2="656" stroke="rgba(45,49,66,0.10)" stroke-width="0.8"/>
+<text x="40" y="676" fill="#4f5d75" font-size="8" font-family="'Geist Mono', monospace" letter-spacing="0.14em">LEGEND</text>
+<line x1="120" y1="673" x2="136" y2="673" stroke="#2e5aa8" stroke-width="1.2"/>
+<text x="144" y="676" fill="#4f5d75" font-size="9" font-family="'Geist Mono', monospace">HTTP / MCP call</text>
+<line x1="255" y1="673" x2="271" y2="673" stroke="#4f5d75" stroke-width="1.2"/>
+<text x="279" y="676" fill="#4f5d75" font-size="9" font-family="'Geist Mono', monospace">in-process call</text>
+<line x1="390" y1="673" x2="406" y2="673" stroke="#4f5d75" stroke-width="1.2" stroke-dasharray="5,4"/>
+<text x="414" y="676" fill="#4f5d75" font-size="9" font-family="'Geist Mono', monospace">return / async</text>
+<line x1="520" y1="673" x2="536" y2="673" stroke="#eb6c36" stroke-width="1.2"/>
+<text x="544" y="676" fill="#4f5d75" font-size="9" font-family="'Geist Mono', monospace">outcome</text>
+      </svg>
+    </div>
+  </div>
+</body>
+</html>

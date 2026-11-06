@@ -1,0 +1,4 @@
+{
+  "extends": "@neosaider/typescript-config/node.json",
+  "include": ["src"]
+}

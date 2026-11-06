@@ -1,0 +1,16 @@
+{
+  "$schema": "../../docs/schemas/module-manifest.schema.json",
+  "id": "gym",
+  "name": "Gym",
+  "version": "0.1.0",
+  "description": "Registra tus entrenamientos y consulta lo que has hecho en los últimos días.",
+  "tags": ["fitness", "health"],
+  "author": "Neosaider",
+  "license": "MIT",
+  "icon": "🏋️",
+  "sdk": "^0.1.0",
+  "image": "neosaider/module-gym:0.1.0",
+  "port": 8080,
+  "dataPath": "/data",
+  "permissions": { "network": "isolated" }
+}

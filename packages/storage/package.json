@@ -1,0 +1,35 @@
+{
+  "name": "@neosaider/storage",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "check-types": "tsc --noEmit",
+    "lint": "eslint .",
+    "test": "node --test \"dist/**/*.test.js\""
+  },
+  "dependencies": {
+    "@langchain/core": "^1.2.17",
+    "@langchain/langgraph-checkpoint": "^1.1.6",
+    "@langchain/langgraph-checkpoint-sqlite": "^1.0.4",
+    "@neosaider/contracts": "workspace:*",
+    "better-sqlite3": "^12.11.1",
+    "sqlite-vec": "^0.1.9"
+  },
+  "devDependencies": {
+    "@neosaider/eslint-config": "workspace:*",
+    "@neosaider/typescript-config": "workspace:*",
+    "@types/better-sqlite3": "^9.6.0",
+    "eslint": "10.9.1"
+  }
+}

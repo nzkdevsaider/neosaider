@@ -1,0 +1,22 @@
+{
+  "$schema": "../../docs/schemas/module-manifest.schema.json",
+  "id": "template",
+  "name": "Template",
+  "version": "0.1.0",
+  "description": "Plantilla mínima para crear un módulo de Neosaider.",
+  "tags": ["example"],
+  "author": "Neosaider",
+  "license": "MIT",
+  "sdk": "^0.1.0",
+  "image": "neosaider/module-template:0.1.0",
+  "port": 8080,
+  "dataPath": "/data",
+  "config": [
+    {
+      "key": "GREETING",
+      "description": "Saludo con el que responde la tool hello.",
+      "default": "Hola"
+    }
+  ],
+  "permissions": { "network": "isolated" }
+}

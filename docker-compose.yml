@@ -1,0 +1,84 @@
+name: neosaider
+
+services:
+  ollama:
+    image: ollama/ollama:latest
+    volumes:
+      - ollama-models:/root/.ollama
+    restart: unless-stopped
+
+  docker-proxy:
+    image: tecnativa/docker-socket-proxy:v0.5.0
+    environment:
+      CONTAINERS: 1
+      IMAGES: 1
+      VOLUMES: 1
+      NETWORKS: 1
+      POST: 1
+      ALLOW_START: 1
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    networks:
+      - docker
+    restart: unless-stopped
+
+  harness:
+    build:
+      context: .
+      args:
+        PACKAGE: "@neosaider/harness"
+    env_file: .env
+    environment:
+      NEOSAIDER_DB_PATH: /data/neosaider.db
+      NEO_LLM_BASE_URL: http://ollama:11434/v1
+      DOCKER_HOST: tcp://docker-proxy:2375
+      NEOSAIDER_DOCKER_NETWORK: neosaider
+      NEOSAIDER_CATALOG_URL: /catalog/catalog.json
+    ports:
+      - "${PORT:-3000}:3000"
+    volumes:
+      - harness-data:/data
+      - ./modules:/catalog:ro
+    networks:
+      - default
+      - docker
+    depends_on:
+      - ollama
+      - docker-proxy
+    restart: unless-stopped
+
+  web:
+    build:
+      context: .
+      target: web
+      args:
+        PACKAGE: "@neosaider/web"
+    env_file: .env
+    environment:
+      NEOSAIDER_URL: http://harness:3000
+      PORT: 3001
+    ports:
+      - "127.0.0.1:3001:3001"
+    depends_on:
+      - harness
+    restart: unless-stopped
+
+  module-gym:
+    image: neosaider/module-gym:0.1.0
+    build:
+      context: .
+      args:
+        PACKAGE: "@neosaider/module-gym"
+    profiles:
+      - modules
+
+networks:
+  default:
+    name: neosaider
+  docker:
+    name: neosaider-docker
+    internal: true
+
+volumes:
+  ollama-models:
+  harness-data:

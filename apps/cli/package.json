@@ -1,0 +1,24 @@
+{
+  "name": "@neosaider/cli",
+  "version": "0.0.7",
+  "private": true,
+  "type": "module",
+  "bin": {
+    "neo": "dist/cli.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "check-types": "tsc --noEmit",
+    "lint": "eslint .",
+    "test": "node --test \"dist/**/*.test.js\"",
+    "start": "node --env-file-if-exists=../../.env dist/cli.js"
+  },
+  "dependencies": {
+    "@neosaider/contracts": "workspace:*"
+  },
+  "devDependencies": {
+    "@neosaider/eslint-config": "workspace:*",
+    "@neosaider/typescript-config": "workspace:*",
+    "eslint": "10.9.1"
+  }
+}

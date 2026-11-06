@@ -1,0 +1,10 @@
+{
+  "extends": ["//"],
+  "tags": ["layer-client"],
+  "tasks": {
+    "build": {
+      "outputs": [".next/**", "!.next/cache/**"],
+      "env": ["NEOSAIDER_URL", "NEOSAIDER_API_TOKEN"]
+    }
+  }
+}

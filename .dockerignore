@@ -1,0 +1,11 @@
+**/node_modules
+**/dist
+**/.turbo
+**/*.db
+**/*.db-shm
+**/*.db-wal
+.git
+.env
+.agents
+.claude
+**/.next

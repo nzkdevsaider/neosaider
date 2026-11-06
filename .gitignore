@@ -36,3 +36,13 @@ yarn-error.log*
 # Misc
 .DS_Store
 *.pem
+.claude/
+
+# SQLite databases
+*.db
+*.db-shm
+*.db-wal
+
+# Skills
+.agents/skills
+skills-lock.json
