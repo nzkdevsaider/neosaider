@@ -6,9 +6,6 @@
 
 **Headless, local-first harness for Neo, your personal assistant.**
 
-> [!WARNING]
-> The project is in the experimental phase.
-
 Bring your own models. One SQLite file. Modules run as Docker containers.
 
 [![License: AGPL-3.0](https://img.shields.io/badge/license-AGPL--3.0-pink.svg?style=flat-square)](LICENSE.md)
@@ -19,6 +16,9 @@ Bring your own models. One SQLite file. Modules run as Docker containers.
 [Getting started](#getting-started) · [Modules](#modules) · [Architecture](docs/ARCHITECTURE.md) · [Security](SECURITY.md) · [Contributing](CONTRIBUTING.md)
 
 </div>
+
+> [!WARNING]
+> The project is in the experimental phase.
 
 ## Summary
 
